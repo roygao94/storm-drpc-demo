@@ -2,11 +2,11 @@ import storm
 
 
 class ParserBolt(storm.BasicBolt):
-    def process(self, tuple):
-        # open('/home/roy/output.txt', 'a').write(str(tuple) + '\n')
-        id = tuple.values[0]
-        result = tuple.values[1] + ' -- parsing by Python'
-        storm.emit([id, result])
+    def process(self, tup):
+        open('/home/roy/output.txt', 'a').write(str(tup) + '\n')
+        # id = tup.values[0]
+        # result = tup.values[1] + ' -- parsing by Python'
+        storm.emit([tup.values[0] + ' -- parsing by Python', tup.values[1]])
 
 
 ParserBolt().run()

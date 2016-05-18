@@ -6,7 +6,7 @@ public class DemoClient {
         String[] words = {"hello", "storm", "drpc"};
 //        String[] words = {"goodbye", "see you"};
         for (String word : words) {
-            String result = client.execute("j-exclamation", word);
+            String result = client.execute("exclamation", word);
             System.out.println("Result for \"" + word + "\": " + result);
         }
 
