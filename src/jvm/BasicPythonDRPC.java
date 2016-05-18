@@ -37,19 +37,6 @@ import java.util.Map;
  * @see <a href="http://storm.apache.org/documentation/Distributed-RPC.html">Distributed RPC</a>
  */
 public class BasicPythonDRPC {
-    //    public static class ExclaimBolt extends BaseBasicBolt {
-//        @Override
-//        public void execute(Tuple tuple, BasicOutputCollector collector) {
-//            String input = tuple.getString(1);
-//            collector.emit(new Values(tuple.getValue(0), input + "!"));
-//        }
-//
-//        @Override
-//        public void declareOutputFields(OutputFieldsDeclarer declarer) {
-//            declarer.declare(new Fields("id", "result"));
-//        }
-//
-//    }
     public static class ExclaimBolt extends ShellBolt implements IRichBolt {
         public ExclaimBolt() {
             super("python", "exclaimbolt.py");
@@ -85,7 +72,7 @@ public class BasicPythonDRPC {
     public static void main(String[] args) throws Exception {
         LinearDRPCTopologyBuilder builder = new LinearDRPCTopologyBuilder("exclamation");
         builder.addBolt(new ExclaimBolt(), 3);
-//        builder.addBolt(new ParseBolt(), 3).shuffleGrouping();
+        builder.addBolt(new ParseBolt(), 3).shuffleGrouping();
 
         Config conf = new Config();
 

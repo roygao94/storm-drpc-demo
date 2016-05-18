@@ -15,8 +15,10 @@ class GetFollowersBolt(storm.BasicBolt):
     def process(self, tuple):
         id = tuple.values[0]
         tweeter = tuple.values[1]
+        # open("/home/roy/output.txt", "a").write(str(tuple) + '\n')
         if tweeter in FOLLOWERS_DB:
             followers = FOLLOWERS_DB[tweeter]
+            # open("/home/roy/output.txt", "a").write(str(followers) + '\n')
             for follower in followers:
                 storm.emit([id, follower])
 

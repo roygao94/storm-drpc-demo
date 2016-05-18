@@ -4,6 +4,7 @@ public class DemoClient {
     public static void main(String[] args) throws Exception {
         DRPCClient client = new DRPCClient("localhost", 3772);
         String[] words = {"hello", "storm", "drpc"};
+//        String[] words = {"goodbye", "see you"};
         for (String word : words) {
             String result = client.execute("j-exclamation", word);
             System.out.println("Result for \"" + word + "\": " + result);

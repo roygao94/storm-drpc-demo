@@ -43,7 +43,7 @@ public class BasicJavaDRPC {
         @Override
         public void execute(Tuple tuple, BasicOutputCollector collector) {
             String input = tuple.getString(1);
-            collector.emit(new Values(tuple.getValue(0), input + "!"));
+            collector.emit(new Values(tuple.getValue(0), input + "!!!Java!!!"));
         }
 
         @Override

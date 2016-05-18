@@ -11,9 +11,12 @@ class GetTweetersBolt(storm.BasicBolt):
     def process(self, tuple):
         id = tuple.values[0]
         url = tuple.values[1]
+        # open("/home/roy/output.txt", "a").write(url + '\n')
         if url in TWEETERS_DB:
             tweeters = TWEETERS_DB[url]
+            # open("/home/roy/output.txt", "a").write(str(tweeters) + '\n')
             for tweeter in tweeters:
                 storm.emit([id, tweeter])
+
 
 GetTweetersBolt().run()
