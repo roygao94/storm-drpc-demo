@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DRPCDemo">
+    <output-path>$PROJECT_DIR$/out/artifacts/DRPCDemo</output-path>
+    <root id="archive" name="DRPCDemo.jar">
+      <element id="module-output" name="storm-drpc-demo" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/DRPCDemo/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
